@@ -10,6 +10,8 @@ public class PathBox {
     private String name;
     private JButton buttonUI;
 
+    
+
     public PathBox(JButton buttonUI, String name) {
         this.buttonUI = buttonUI;
         this.name = name;
@@ -50,11 +52,11 @@ public class PathBox {
     public void setNorthBox(PathBox northBox) {
         this.northBox = northBox;
     }
-
+    //Agregado para poder visualizar la vida de los monstruos. 
     public void update() {
         if(this.monster != null) {
             buttonUI.setVisible(true);
-            buttonUI.setText(monster.toString());
+            buttonUI.setText(monster.toString() + "  Health: " + monster.getLife());
             if(monster.getPlayer().getId().equals(1L)) {
                 buttonUI.setBackground(new Color(123, 179, 252));
             } else {
