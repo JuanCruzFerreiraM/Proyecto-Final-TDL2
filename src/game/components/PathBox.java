@@ -52,7 +52,7 @@ public class PathBox {
     public void setNorthBox(PathBox northBox) {
         this.northBox = northBox;
     }
-
+    //Agregado para poder visualizar la vida de los monstruos. 
     public void update() {
         if(this.monster != null) {
             buttonUI.setVisible(true);
