@@ -5,6 +5,7 @@ import game.monsters.IceBeast;
 import game.monsters.Spartan;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -30,13 +31,15 @@ public class Main {
                 new Spartan("Spartan 64"),
                 new Spartan("Spartan 15"));
 
-        //TODO ordenar el listado de monstruos que recibe el jugador uno
+        // TODO ordenar el listado de monstruos que recibe el jugador uno
+        Collections.sort(monstersOne, new ComparadorVida());
         rumbleGame.getPlayerOne().setMonsters(monstersOne);
 
         List<Monster> monstersTwo = Arrays.asList(new Spartan("Spartan A"),
                 new Spartan("Spartan B"));
 
-        //TODO ordenar el listado de monstruos que recibe el jugador dos
+        // TODO ordenar el listado de monstruos que recibe el jugador dos
+        Collections.sort(monstersTwo, new ComparadorNombre());
         rumbleGame.getPlayerTwo().setMonsters(monstersTwo);
 
         rumbleGame.startGame();
