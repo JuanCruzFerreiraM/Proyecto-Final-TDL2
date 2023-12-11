@@ -2,8 +2,7 @@
 ---
 ## Objetivo
 ---
-El objetivo del proyecto es modificar un juego ya provisto por la cátedra y realizare ciertas modificaciones, como por ejemplo nuevos personajes,
-habilidades, entre otras.
+El objetivo del proyecto es modificar un juego ya provisto por la cátedra y realizare ciertas modificaciones, como por ejemplo nuevos personajes,habilidades, entre otras.
 ---
 ### Alumnos
 ---

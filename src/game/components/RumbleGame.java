@@ -10,7 +10,7 @@ public class RumbleGame {
     private boolean loopGame = true;
     private int round = 0;
     private SegundaEvaluacionUI segundaEvaluacionUI;
-
+    
     public static RumbleGame getInstance() {
         return instance;
     }
@@ -124,8 +124,6 @@ public class RumbleGame {
                 throw new RuntimeException(e);
             }
         }
-        //TODO: Colocar una ventana modal con un mensaje que indique el resultado
-
         System.exit(0);
     }
 }
