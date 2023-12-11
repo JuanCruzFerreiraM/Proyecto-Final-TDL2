@@ -134,7 +134,17 @@ public class RumbleGame {
             }
         }
         //TODO: Colocar una ventana modal con un mensaje que indique el resultado
-
+        JDialog popOutWindow = new JDialog(segundaEvaluacionUI, true);
+        popOutWindow.setLayout(new BorderLayout());
+        popOutWindow.setSize(500, 300);
+        popOutWindow.setTitle("Resultado");
+        popOutWindow.setLocationRelativeTo(segundaEvaluacionUI);
+        JLabel winMessage = new JLabel(this.result);
+        JLabel endGameMessage = new JLabel("Fin del Juego");
+        popOutWindow.add(endGameMessage, BorderLayout.NORTH);
+        popOutWindow.add(winMessage, BorderLayout.CENTER);
+        popOutWindow.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        popOutWindow.setVisible(true);
         System.exit(0);
     }
 }
