@@ -1,6 +1,10 @@
-package game.components;
+    package game.components;
 
 import game.random.RandomGenerator;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;;
 
 public class RumbleGame {
 
@@ -10,6 +14,8 @@ public class RumbleGame {
     private boolean loopGame = true;
     private int round = 0;
     private SegundaEvaluacionUI segundaEvaluacionUI;
+    private String result; 
+
 
     public static RumbleGame getInstance() {
         return instance;
@@ -105,10 +111,13 @@ public class RumbleGame {
         if(playerOne.getCastle().getCastleLife() <= 0) {
             System.out.println("****         Ganador el Jugador Azul!!!         ****");
             loopGame = false;
+            this.result = "El jugador Azul ha ganado.";
+
         }
         if(playerTwo.getCastle().getCastleLife() <= 0) {
             System.out.println("****         Ganador el Jugador Rojo!!!         ****");
             loopGame = false;
+            this.result = "El jugador Rojo ha ganado.";
         }
         if(round == 100) {
             loopGame = false;
@@ -125,7 +134,17 @@ public class RumbleGame {
             }
         }
         //TODO: Colocar una ventana modal con un mensaje que indique el resultado
-
+        JDialog popOutWindow = new JDialog(segundaEvaluacionUI, true);
+        popOutWindow.setLayout(new BorderLayout());
+        popOutWindow.setSize(500, 300);
+        popOutWindow.setTitle("Resultado");
+        popOutWindow.setLocationRelativeTo(segundaEvaluacionUI);
+        JLabel winMessage = new JLabel(this.result);
+        JLabel endGameMessage = new JLabel("Fin del Juego");
+        popOutWindow.add(endGameMessage, BorderLayout.NORTH);
+        popOutWindow.add(winMessage, BorderLayout.CENTER);
+        popOutWindow.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        popOutWindow.setVisible(true);
         System.exit(0);
     }
 }
