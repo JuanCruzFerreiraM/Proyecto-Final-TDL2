@@ -2,6 +2,7 @@ import game.components.Monster;
 import game.components.RumbleGame;
 import game.monsters.EvilBeast;
 import game.monsters.IceBeast;
+import game.monsters.Seth;
 import game.monsters.Spartan;
 
 import java.util.Arrays;
@@ -13,23 +14,11 @@ public class Main {
         RumbleGame rumbleGame = RumbleGame.getInstance();
         rumbleGame.init();
 
-        List<Monster> monstersOne = Arrays.asList(new Spartan("Spartan 1"),
-                new Spartan("Spartan 2"),
-                new Spartan("Spartan 3"),
-                new Spartan("Spartan 4"),
-                new Spartan("Spartan 5"),
-                new Spartan("Spartan 6"),
-                new Spartan("Spartan 7"),
-                new Spartan("Spartan 8"),
-                new Spartan("Spartan 9"),
-                new Spartan("Spartan 10"),
-                new IceBeast("Ice Beast"),
-                new Spartan("Spartan 24"),
-                new Spartan("Spartan 224"),
-                new Spartan("Spartan 34"),
-                new Spartan("Spartan 44"),
-                new Spartan("Spartan 64"),
-                new Spartan("Spartan 15"));
+        List<Monster> monstersOne = Arrays.asList(new Seth("seth1"),
+                new Seth("seth2"),
+                new Seth("seth3"),
+                new Seth("seth4"),
+                new Seth("seth5"));
 
         // TODO ordenar el listado de monstruos que recibe el jugador uno
         Collections.sort(monstersOne, new ComparadorVida());

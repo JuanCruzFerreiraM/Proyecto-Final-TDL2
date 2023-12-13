@@ -1,4 +1,4 @@
-    package game.components;
+package game.components;
 
 import game.random.RandomGenerator;
 import java.awt.*;
@@ -14,8 +14,7 @@ public class RumbleGame {
     private boolean loopGame = true;
     private int round = 0;
     private SegundaEvaluacionUI segundaEvaluacionUI;
-    private String result; 
-
+    private String result;
 
     public static RumbleGame getInstance() {
         return instance;
@@ -99,7 +98,7 @@ public class RumbleGame {
         System.out.println("Siguiente Ronda numero: " + round);
         int jugador = RandomGenerator.getInstance().nextPlayer();
         System.out.println("Mueve primero el Jugador numero " + jugador);
-        if(jugador == 1) {
+        if (jugador == 1) {
             playerOne.nextRound();
             playerTwo.nextRound();
         } else {
@@ -108,24 +107,25 @@ public class RumbleGame {
         }
         segundaEvaluacionUI.refresh();
         round++;
-        if(playerOne.getCastle().getCastleLife() <= 0) {
+        if (playerOne.getCastle().getCastleLife() <= 0) {
             System.out.println("****         Ganador el Jugador Azul!!!         ****");
             loopGame = false;
             this.result = "El jugador Azul ha ganado.";
 
         }
-        if(playerTwo.getCastle().getCastleLife() <= 0) {
+        if (playerTwo.getCastle().getCastleLife() <= 0) {
             System.out.println("****         Ganador el Jugador Rojo!!!         ****");
             loopGame = false;
             this.result = "El jugador Rojo ha ganado.";
         }
-        if(round == 100) {
+
+        if (round == 100) {
             loopGame = false;
         }
     }
 
     public void startGame() {
-        while(loopGame) {
+        while (loopGame) {
             try {
                 Thread.sleep(1500);
                 this.nextRound();
@@ -133,7 +133,7 @@ public class RumbleGame {
                 throw new RuntimeException(e);
             }
         }
-        //TODO: Colocar una ventana modal con un mensaje que indique el resultado
+        // TODO: Colocar una ventana modal con un mensaje que indique el resultado
         JDialog popOutWindow = new JDialog(segundaEvaluacionUI, true);
         popOutWindow.setLayout(new BorderLayout());
         popOutWindow.setSize(500, 300);
