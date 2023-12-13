@@ -138,12 +138,31 @@ public class RumbleGame {
         popOutWindow.setLayout(new BorderLayout());
         popOutWindow.setSize(500, 300);
         popOutWindow.setTitle("Resultado");
-        popOutWindow.setLocationRelativeTo(segundaEvaluacionUI);
-        JLabel winMessage = new JLabel(this.result);
-        JLabel endGameMessage = new JLabel("Fin del Juego");
-        popOutWindow.add(endGameMessage, BorderLayout.NORTH);
-        popOutWindow.add(winMessage, BorderLayout.CENTER);
         popOutWindow.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        popOutWindow.setLocationRelativeTo(segundaEvaluacionUI);
+        popOutWindow.setIconImage(null);
+        GridBagConstraints c = new GridBagConstraints();
+        // Configuración de Labels
+        JLabel endGameMessage = new JLabel("Fin del Juego");
+        endGameMessage.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 0;
+        c.ipadx = 5;
+        c.ipady = 6;
+        c.insets = new Insets(5, 10, 10, 10);
+        endGameMessage.setHorizontalAlignment(JLabel.CENTER);
+        popOutWindow.add(endGameMessage, c);
+        JLabel winMessage = new JLabel(this.result);
+        winMessage.setFont(new Font(Font.SERIF, Font.BOLD, 25));
+        c.gridx = 1;
+        c.gridy = 1;
+        c.ipadx = 5;
+        c.ipady = 6;
+        c.insets = new Insets(10, 10, 10, 10);
+        winMessage.setHorizontalAlignment(JLabel.CENTER);
+        popOutWindow.add(winMessage, c);
+        // Se visualiza la ventana pop-out
         popOutWindow.setVisible(true);
         System.exit(0);
     }
