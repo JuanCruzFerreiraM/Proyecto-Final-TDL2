@@ -8,4 +8,7 @@ public enum Type {
     BEAST,
     SAND,
     STORM,
+    ROCK,
+    LIGHT,
+    PLANT;
 }
