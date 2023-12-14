@@ -30,7 +30,7 @@ public class IceBeast extends Monster {
     @Override
     public void move(PathBox oldPathBox, PathBox newPathBox) {
         super.move(oldPathBox, newPathBox);
-        if(activeSkill instanceof ColdBreath) {
+        if (activeSkill instanceof ColdBreath) {
             this.activeSkill = skills.get(1);
         } else {
             this.activeSkill = skills.get(0);

@@ -124,7 +124,9 @@ public class RumbleGame {
                 && !playerOne.getCastle().getWestPath().haveMonster(playerOne.getId())
                 && !playerOne.getCastle().getWestPath().haveMonster(playerTwo.getId())
                 && playerOne.getCastle().getCastleLife() > 0
-                && playerTwo.getCastle().getCastleLife() > 0) {
+                && playerTwo.getCastle().getCastleLife() > 0
+                && !playerOne.getIterator().hasNext()
+                && !playerTwo.getIterator().hasNext()) {
             loopGame = false;
             throw new DrawException();
         }

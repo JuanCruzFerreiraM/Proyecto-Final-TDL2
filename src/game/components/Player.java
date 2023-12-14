@@ -36,4 +36,8 @@ public class Player {
     public Long getId() {
         return id;
     }
+
+    public Iterator<Monster> getIterator() {
+        return monsterIterator;
+    }
 }
