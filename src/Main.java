@@ -2,13 +2,14 @@ import game.components.Monster;
 import game.components.RumbleGame;
 import game.monsters.EvilBeast;
 import game.monsters.IceBeast;
-import game.monsters.Seth;
-import game.monsters.VolcanoBeast;
 import game.monsters.Spartan;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import entregable.monstruos.Seth;
+import entregable.monstruos.VolcanoBeast;
 
 public class Main {
     public static void main(String[] args) {

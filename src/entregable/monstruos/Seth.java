@@ -1,14 +1,15 @@
-package game.monsters;
+package entregable.monstruos;
 
 import game.components.Monster;
 import game.components.PathBox;
-import game.attacks.QuickSand;
-import game.attacks.SandStrom;
-import game.attacks.Sand;
 import game.types.Type;
 
 import java.util.Arrays;
 import java.util.List;
+
+import entregable.ataques.QuickSand;
+import entregable.ataques.Sand;
+import entregable.ataques.SandStrom;
 
 public class Seth extends Monster {
 
