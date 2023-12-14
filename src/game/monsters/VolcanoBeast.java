@@ -13,7 +13,7 @@ import java.util.List;
 public class VolcanoBeast extends Monster {
     private List<Attack> skills = Arrays.asList(new RockAndRoll(), new Flare());
     public VolcanoBeast(String name) {
-        this.life = 500;
+        this.life = 600;
         this.monsterName = name;
         this.activeSkill = skills.get(0);
         this.types = Arrays.asList(Type.ROCK, Type.FIRE);

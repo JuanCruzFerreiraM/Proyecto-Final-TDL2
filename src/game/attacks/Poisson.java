@@ -6,8 +6,11 @@ public class Poisson implements Plant{
 
   @Override
   public int damage(Monster monster){
-    int damage = monster.getLife()/2;
-    return damage;
+    if (monster.getLife() >= 600){
+      int damage = monster.getLife()/2;
+      return damage;
+    }
+    return 150;
 }
 
 }
