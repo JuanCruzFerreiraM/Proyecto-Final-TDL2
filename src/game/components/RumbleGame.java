@@ -4,7 +4,8 @@ import game.random.RandomGenerator;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;;
+import java.awt.event.ActionListener;
+import entregable.DrawException;
 
 public class RumbleGame {
 
@@ -92,7 +93,7 @@ public class RumbleGame {
         castleTwo.setLifeLabel(segundaEvaluacionUI.getVidasPlayerTwoLabel());
     }
 
-    public void nextRound() {
+    public void nextRound() throws DrawException {
         System.out.println();
         System.out.println();
         System.out.println("Siguiente Ronda numero: " + round);
@@ -118,6 +119,15 @@ public class RumbleGame {
             loopGame = false;
             this.result = "El jugador Rojo ha ganado.";
         }
+        if (!playerOne.getCastle().getEastPath().haveMonster(playerOne.getId())
+                && !playerOne.getCastle().getEastPath().haveMonster(playerTwo.getId())
+                && !playerOne.getCastle().getWestPath().haveMonster(playerOne.getId())
+                && !playerOne.getCastle().getWestPath().haveMonster(playerTwo.getId())
+                && playerOne.getCastle().getCastleLife() > 0
+                && playerTwo.getCastle().getCastleLife() > 0) {
+            loopGame = false;
+            throw new DrawException();
+        }
 
         if (round == 100) {
             loopGame = false;
@@ -129,6 +139,8 @@ public class RumbleGame {
             try {
                 Thread.sleep(1500);
                 this.nextRound();
+            } catch (DrawException d) {
+                this.result = "Empate.";
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

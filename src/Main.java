@@ -45,7 +45,6 @@ public class Main {
                 new VolcanoBeast("Volcano B"),
                 new Seth("Seth A"),
                 new IceBeast("Ice Beast A"));
-                
 
         // TODO ordenar el listado de monstruos que recibe el jugador dos
         Collections.sort(monstersTwo, new ComparadorNombre());
