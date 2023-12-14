@@ -1,4 +1,4 @@
-package game.attacks;
+package entregable.ataques;
 
 import game.components.Monster;
 import game.random.RandomGenerator;

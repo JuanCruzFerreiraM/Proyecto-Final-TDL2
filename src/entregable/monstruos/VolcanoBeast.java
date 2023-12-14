@@ -1,15 +1,16 @@
-package game.monsters;
+package entregable.monstruos;
 
-import game.attacks.RockAndRoll;
 import game.components.Monster;
 import game.components.PathBox;
 import game.random.RandomGenerator;
 import game.types.Type;
-import game.attacks.Flare;
 import game.attacks.Attack;
 
 import java.util.Arrays;
 import java.util.List;
+
+import entregable.ataques.Flare;
+import entregable.ataques.RockAndRoll;
 
 public class VolcanoBeast extends Monster {
     private List<Attack> skills = Arrays.asList(new RockAndRoll(), new Flare());
