@@ -14,8 +14,7 @@ public class RumbleGame {
     private boolean loopGame = true;
     private int round = 0;
     private SegundaEvaluacionUI segundaEvaluacionUI;
-    private String result; 
-
+    private String result;
 
     public static RumbleGame getInstance() {
         return instance;
@@ -99,7 +98,7 @@ public class RumbleGame {
         System.out.println("Siguiente Ronda numero: " + round);
         int jugador = RandomGenerator.getInstance().nextPlayer();
         System.out.println("Mueve primero el Jugador numero " + jugador);
-        if(jugador == 1) {
+        if (jugador == 1) {
             playerOne.nextRound();
             playerTwo.nextRound();
         } else {
@@ -108,24 +107,25 @@ public class RumbleGame {
         }
         segundaEvaluacionUI.refresh();
         round++;
-        if(playerOne.getCastle().getCastleLife() <= 0) {
+        if (playerOne.getCastle().getCastleLife() <= 0) {
             System.out.println("****         Ganador el Jugador Azul!!!         ****");
             loopGame = false;
             this.result = "El jugador Azul ha ganado.";
 
         }
-        if(playerTwo.getCastle().getCastleLife() <= 0) {
+        if (playerTwo.getCastle().getCastleLife() <= 0) {
             System.out.println("****         Ganador el Jugador Rojo!!!         ****");
             loopGame = false;
             this.result = "El jugador Rojo ha ganado.";
         }
-        if(round == 100) {
+
+        if (round == 100) {
             loopGame = false;
         }
     }
 
     public void startGame() {
-        while(loopGame) {
+        while (loopGame) {
             try {
                 Thread.sleep(1500);
                 this.nextRound();
@@ -133,16 +133,16 @@ public class RumbleGame {
                 throw new RuntimeException(e);
             }
         }
-        //Configuración de la ventana modal
-        JDialog popOutWindow = new JDialog(segundaEvaluacionUI, true); //Como es hija de segundaEvaluacion hereda de esta el icono. 
-        popOutWindow.setLayout(new GridBagLayout());
+        // TODO: Colocar una ventana modal con un mensaje que indique el resultado
+        JDialog popOutWindow = new JDialog(segundaEvaluacionUI, true);
+        popOutWindow.setLayout(new BorderLayout());
         popOutWindow.setSize(500, 300);
         popOutWindow.setTitle("Resultado");
         popOutWindow.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         popOutWindow.setLocationRelativeTo(segundaEvaluacionUI);
         popOutWindow.setIconImage(null);
         GridBagConstraints c = new GridBagConstraints();
-        //Configuración de Labels
+        // Configuración de Labels
         JLabel endGameMessage = new JLabel("Fin del Juego");
         endGameMessage.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -150,19 +150,19 @@ public class RumbleGame {
         c.gridy = 0;
         c.ipadx = 5;
         c.ipady = 6;
-        c.insets = new Insets(5,10,10,10);
+        c.insets = new Insets(5, 10, 10, 10);
         endGameMessage.setHorizontalAlignment(JLabel.CENTER);
-        popOutWindow.add(endGameMessage,c);
+        popOutWindow.add(endGameMessage, c);
         JLabel winMessage = new JLabel(this.result);
-        winMessage.setFont(new Font(Font.SERIF, Font.BOLD, 25)); 
+        winMessage.setFont(new Font(Font.SERIF, Font.BOLD, 25));
         c.gridx = 1;
         c.gridy = 1;
         c.ipadx = 5;
         c.ipady = 6;
-        c.insets = new Insets(10,10,10,10);
+        c.insets = new Insets(10, 10, 10, 10);
         winMessage.setHorizontalAlignment(JLabel.CENTER);
         popOutWindow.add(winMessage, c);
-        //Se visualiza la ventana pop-out
+        // Se visualiza la ventana pop-out
         popOutWindow.setVisible(true);
         System.exit(0);
     }

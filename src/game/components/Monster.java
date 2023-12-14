@@ -49,4 +49,8 @@ public abstract class Monster {
         return monsterName;
     }
 
-}
+    public void addLife(Integer shild, Monster monster){
+        this.life = this.life + shild;
+        System.out.println(this + " se curo " + shild + " de salud");
+    }
+}   
