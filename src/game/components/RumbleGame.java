@@ -1,4 +1,4 @@
-    package game.components;
+package game.components;
 
 import game.random.RandomGenerator;
 import java.awt.*;
