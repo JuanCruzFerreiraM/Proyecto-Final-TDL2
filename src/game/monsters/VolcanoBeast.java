@@ -3,6 +3,7 @@ package game.monsters;
 import game.attacks.RockAndRoll;
 import game.components.Monster;
 import game.components.PathBox;
+import game.random.RandomGenerator;
 import game.types.Type;
 import game.attacks.Flare;
 import game.attacks.Attack;
@@ -15,7 +16,7 @@ public class VolcanoBeast extends Monster {
     public VolcanoBeast(String name) {
         this.life = 600;
         this.monsterName = name;
-        this.activeSkill = skills.get(0);
+        this.activeSkill = skills.get(RandomGenerator.getInstance().calculateDamage(0, 1));
         this.types = Arrays.asList(Type.ROCK, Type.FIRE);
     }
     

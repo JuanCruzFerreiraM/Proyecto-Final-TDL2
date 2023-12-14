@@ -4,9 +4,10 @@ import game.attacks.ColdBreath;
 import game.attacks.IceSpike;
 import game.components.Monster;
 import game.components.PathBox;
+import game.random.RandomGenerator;
 import game.attacks.Cold;
 import game.types.Type;
-
+import game.random.RandomGenerator;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class IceBeast extends Monster {
     public IceBeast(String name) {
         this.life = 350;
         this.monsterName = name;
-        this.activeSkill = skills.get(0);
+        this.activeSkill = skills.get(RandomGenerator.getInstance().calculateDamage(0, 1));
         this.types = Arrays.asList(Type.COLD, Type.BEAST);
     }
 
