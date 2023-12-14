@@ -135,7 +135,7 @@ public class RumbleGame {
         }
         // TODO: Colocar una ventana modal con un mensaje que indique el resultado
         JDialog popOutWindow = new JDialog(segundaEvaluacionUI, true);
-        popOutWindow.setLayout(new BorderLayout());
+        popOutWindow.setLayout(new GridBagLayout());
         popOutWindow.setSize(500, 300);
         popOutWindow.setTitle("Resultado");
         popOutWindow.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
