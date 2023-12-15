@@ -3,9 +3,11 @@ package game.components;
 import game.random.RandomGenerator;
 import java.awt.*;
 import javax.swing.*;
+
+import entregable.excepciones.DrawException;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import entregable.DrawException;
 
 public class RumbleGame {
 
@@ -176,6 +178,7 @@ public class RumbleGame {
         c.insets = new Insets(10, 10, 10, 10);
         winMessage.setHorizontalAlignment(JLabel.CENTER);
         popOutWindow.add(winMessage, c);
+        //Agregar botón que permita cerrar la ventana pero no el programa. Que solo se puede cerrar de esa forma.
         // Se visualiza la ventana pop-out
         popOutWindow.setVisible(true);
         System.exit(0);

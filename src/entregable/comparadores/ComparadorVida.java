@@ -1,3 +1,4 @@
+package entregable.comparadores;
 import java.util.Comparator;
 
 import game.components.Monster;
