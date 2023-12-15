@@ -7,8 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import entregable.comparadores.ComparadorNombre;
-import entregable.comparadores.ComparadorVida;
+import entregable.comparadores.*;
 import entregable.monstruos.*;
 
 public class Main {

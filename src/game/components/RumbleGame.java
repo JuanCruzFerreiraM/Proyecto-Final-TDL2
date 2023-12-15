@@ -4,10 +4,12 @@ import game.random.RandomGenerator;
 import java.awt.*;
 import javax.swing.*;
 
-import entregable.excepciones.DrawException;
+import entregable.excepciones.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 
 public class RumbleGame {
 
@@ -138,25 +140,13 @@ public class RumbleGame {
         }
     }
 
-    public void startGame() {
-        while (loopGame) {
-            try {
-                Thread.sleep(1500);
-                this.nextRound();
-            } catch (DrawException d) {
-                this.result = "Empate.";
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        // TODO: Colocar una ventana modal con un mensaje que indique el resultado
+    private void popOutWindowCreator (String result){
         JDialog popOutWindow = new JDialog(segundaEvaluacionUI, true);
         popOutWindow.setLayout(new GridBagLayout());
         popOutWindow.setSize(500, 300);
         popOutWindow.setTitle("Resultado");
-        popOutWindow.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        popOutWindow.setUndecorated(true);
         popOutWindow.setLocationRelativeTo(segundaEvaluacionUI);
-        popOutWindow.setIconImage(null);
         GridBagConstraints c = new GridBagConstraints();
         // Configuración de Labels
         JLabel endGameMessage = new JLabel("Fin del Juego");
@@ -169,7 +159,7 @@ public class RumbleGame {
         c.insets = new Insets(5, 10, 10, 10);
         endGameMessage.setHorizontalAlignment(JLabel.CENTER);
         popOutWindow.add(endGameMessage, c);
-        JLabel winMessage = new JLabel(this.result);
+        JLabel winMessage = new JLabel(result);
         winMessage.setFont(new Font(Font.SERIF, Font.BOLD, 25));
         c.gridx = 1;
         c.gridy = 1;
@@ -179,8 +169,48 @@ public class RumbleGame {
         winMessage.setHorizontalAlignment(JLabel.CENTER);
         popOutWindow.add(winMessage, c);
         //Agregar botón que permita cerrar la ventana pero no el programa. Que solo se puede cerrar de esa forma.
+        JButton closeButton = new JButton("Cerrar");
+        closeButton.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                popOutWindow.dispose();
+            }
+        });
+        closeButton.addMouseListener(new MouseAdapter() {
+            
+            public void mouseEntered(MouseEvent e) {
+                closeButton.setBackground(new Color(190, 190, 190));
+            }
+
+            public void mouseExited(MouseEvent e) {
+                closeButton.setBackground(new Color(202, 202, 202));
+            }
+        });
+        c.gridx = 1;
+        c.gridy = 2;
+        c.ipady = 10;
+        c.insets = new Insets(20, 10, 10, 10);
+        closeButton.setBackground(new Color(202, 202, 202));
+        closeButton.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 20));
+        closeButton.setBorder(null);
+        closeButton.setFocusable(false);
+        popOutWindow.add(closeButton,c);
         // Se visualiza la ventana pop-out
         popOutWindow.setVisible(true);
+    }
+
+    public void startGame() {
+        while (loopGame) {
+            try {
+                Thread.sleep(1500);
+                this.nextRound();
+            } catch (DrawException d) {
+                this.result = "Ha ocurrido un empate.";
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        // TODO: Colocar una ventana modal con un mensaje que indique el resultado
+        popOutWindowCreator(result);
         System.exit(0);
     }
 }
