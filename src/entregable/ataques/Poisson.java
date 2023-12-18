@@ -9,14 +9,11 @@ public class Poisson implements Plant{
 
   @Override
   public int damage(Monster monster){
-    if (monster.getTypes().contains(Type.SWORD)) {
+    if ((monster.getTypes().contains(Type.SWORD))||(monster.getTypes().contains(Type.BEAST))) {
       //Si porta una espada es un ser vivo y el veneno le afecta.
-       return monster.getLife() - 300;
-    } else if (monster.getLife() >= 600){
       int damage = monster.getLife()/2;
-      return damage;
-    }  
-
+       return damage;
+    }
     return 150;
 }
 
