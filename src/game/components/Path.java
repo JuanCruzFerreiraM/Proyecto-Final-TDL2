@@ -43,6 +43,9 @@ public class Path {
                         if (occupiedPathBox.get().getNorthBox().getMonster().getLife() <= 0) {
                             occupiedPathBox.get().getNorthBox().setMonster(null);
                         }
+                        if (occupiedPathBox.get().getMonster().getLife() <= 0) {
+                            occupiedPathBox.get().setMonster(null);
+                        }
                     }
                 }
             } else {
