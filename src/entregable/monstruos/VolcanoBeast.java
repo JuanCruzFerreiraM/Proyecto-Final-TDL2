@@ -41,7 +41,6 @@ public class VolcanoBeast extends Monster {
       public void onDamageReceive(Integer damage, Monster monster) {
           if (monster.getTypes().contains(Type.SWORD)) {
             this.life = this.life - ((int) (damage/1.5)); //Como si fuera de lava derrite la espada del monstruo.
-            System.out.println("Funciona");
         } else {
             this.life = this.life - damage;
           }

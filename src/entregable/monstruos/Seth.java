@@ -19,7 +19,7 @@ public class Seth extends Monster {
     public Seth(String name) {
         this.life = 400;
         this.monsterName = name;
-        this.activeSkill = skills.get(RandomGenerator.getInstance().calculateDamage(0, 1));
+        this.activeSkill = skills.get(0);
         this.types = Arrays.asList(Type.SAND, Type.STORM);
     }
 
