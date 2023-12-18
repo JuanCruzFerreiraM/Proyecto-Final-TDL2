@@ -7,7 +7,6 @@ import game.components.PathBox;
 import game.random.RandomGenerator;
 import game.attacks.Cold;
 import game.types.Type;
-import game.random.RandomGenerator;
 import java.util.Arrays;
 import java.util.List;
 

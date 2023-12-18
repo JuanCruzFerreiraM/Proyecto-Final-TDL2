@@ -8,8 +8,7 @@ import entregable.excepciones.*;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
+//import java.awt.event.MouseListener;
 
 public class RumbleGame {
 
@@ -140,7 +139,7 @@ public class RumbleGame {
         }
     }
 
-    private void popOutWindowCreator (String result){
+    private void popOutWindowCreator(String result) {
         JDialog popOutWindow = new JDialog(segundaEvaluacionUI, true);
         popOutWindow.setLayout(new GridBagLayout());
         popOutWindow.setSize(500, 300);
@@ -168,7 +167,7 @@ public class RumbleGame {
         c.insets = new Insets(10, 10, 10, 10);
         winMessage.setHorizontalAlignment(JLabel.CENTER);
         popOutWindow.add(winMessage, c);
-        //Botón que permite cerrar la ventana pop-out
+        // Botón que permite cerrar la ventana pop-out
         JButton closeButton = new JButton("Cerrar");
         closeButton.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -176,7 +175,7 @@ public class RumbleGame {
             }
         });
         closeButton.addMouseListener(new MouseAdapter() {
-            
+
             public void mouseEntered(MouseEvent e) {
                 closeButton.setBackground(new Color(190, 190, 190));
             }
@@ -193,7 +192,7 @@ public class RumbleGame {
         closeButton.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 20));
         closeButton.setBorder(null);
         closeButton.setFocusable(false);
-        popOutWindow.add(closeButton,c);
+        popOutWindow.add(closeButton, c);
         // Se visualiza la ventana pop-out
         popOutWindow.setVisible(true);
     }

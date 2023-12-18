@@ -2,7 +2,6 @@ package entregable.monstruos;
 
 import game.components.Monster;
 import game.components.PathBox;
-import game.random.RandomGenerator;
 import game.types.Type;
 
 import java.util.Arrays;

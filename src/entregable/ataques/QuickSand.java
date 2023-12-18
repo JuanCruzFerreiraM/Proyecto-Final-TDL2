@@ -7,9 +7,9 @@ public class QuickSand implements Sand {
     public int damage(Monster monster) {
         double depth = Math.random();
         if (depth < 0.15) {
-            return (int) (0.15 * 400);
+            return (int) (0.15 * 700);
         } else {
-            return (int) (depth * 400);
+            return (int) (depth * 700);
         }
     }
 }
