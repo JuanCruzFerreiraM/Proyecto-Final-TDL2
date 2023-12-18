@@ -168,7 +168,7 @@ public class RumbleGame {
         c.insets = new Insets(10, 10, 10, 10);
         winMessage.setHorizontalAlignment(JLabel.CENTER);
         popOutWindow.add(winMessage, c);
-        //Agregar botón que permita cerrar la ventana pero no el programa. Que solo se puede cerrar de esa forma.
+        //Botón que permite cerrar la ventana pop-out
         JButton closeButton = new JButton("Cerrar");
         closeButton.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
